@@ -1,4 +1,5 @@
-components.todo = class Todo {
+
+class Todo {
 
   /**
    * 

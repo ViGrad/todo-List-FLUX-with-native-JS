@@ -5,10 +5,10 @@ class TodoStore extends Store {
     super();
 
     this.list = [
-      new components.todo(1, "Buy milk", false),
-      new components.todo(2, "Finish todoList", false),
-      new components.todo(3, "Visit Martinique", true),
-      new components.todo(4, "Say hi to sister", false),
+      new Todo(1, "Buy milk", false),
+      new Todo(2, "Finish todoList", false),
+      new Todo(3, "Visit Martinique", true),
+      new Todo(4, "Say hi to sister", false),
     ];
 
     this.counter = new Counter(5);
@@ -35,7 +35,7 @@ class TodoStore extends Store {
 
     const id = this.counter.getValue();
     const list = this.list;
-    const todo = new components.todo(id, todoName);
+    const todo = new Todo(id, todoName);
 
     list.push(todo);
 

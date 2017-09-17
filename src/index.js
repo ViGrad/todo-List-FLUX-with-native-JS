@@ -1,6 +1,4 @@
 
-var components = [];
-
 /**
  * initialisation
  */
@@ -35,7 +33,7 @@ function sendTodoForm(event){
 
 
 /**
- * 
+ * Check types of arguments. Throw error if types are wrong
  * @param {object} args 
  */
 function typeCheck(...args){

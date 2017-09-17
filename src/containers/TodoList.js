@@ -33,56 +33,27 @@ class TodoList {
 
     const $element = this.$element;
 
-    /*
-    const toDelete = previousList.filter((previousTodo) => {
-      return !todoList.some((todo) => {
-        return todo.id === previousTodo.id
-      });
-    });
-
-    const toAdd = todoList.filter((todo) => {
-      return !previousList.some((previousTodo) => {
-        return todo.equals(previousTodo);
-      });
-    });
-
-
-    for(const {id} of toDelete){
-      $element.querySelector("#todo" + id).remove();      
+    while(this.$element.firstChild){
+      this.$element.firstChild.remove();
     }
 
-    for(const todo of toAdd){
-      const node = todo.getNode();
-      $element.appendChild(node);      
-    }
-
-    for(const {id, name} of todoList){
-      nodes.push(this.getTodoNode(id, name));
-    }
-    */
-
-    const filteredList = todoList.filter((todo) => {
+    const filteredList = todoList.filter( (todo) => {
       let valid = true;
-      const todoIsDone = todo.isDone;
 
       if(this.onlyDone){
-        valid = todoIsDone ? true : false;
+        valid = todo.isDone ? true : false;
       }
 
       if(this.onlyNotDone){
-        valid = todoIsDone ? false : true;
+        valid = todo.isDone ? false : true;
       }
 
       return valid;
     });
 
-    while(this.$element.firstChild){
-      this.$element.firstChild.remove();
-    }
-
     const nodes = filteredList.map((todo) => {
       return todo.getNode();
-    })
+    });
 
     for(const node of nodes){
       this.$element.appendChild(node);
@@ -91,6 +62,7 @@ class TodoList {
     this.todos = filteredList;
   }
 
+  /*
   onClickTodoName(event){
     typeCheck(
       [event, "object"]
@@ -111,7 +83,7 @@ class TodoList {
 
     event.currentTarget.replaceWith(nameForm);
 
-    nameInput.focus();    
+    nameInput.focus();
   }
 
   onBlurTodoName(event){
@@ -138,6 +110,6 @@ class TodoList {
     const target = event.currentTarget;
 
     const newName = target.elements.newName;
-  }
+  }*/
 
 }
