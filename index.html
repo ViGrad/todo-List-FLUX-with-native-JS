@@ -1,0 +1,54 @@
+<html>
+    <head>
+        <title> Todo List </title>
+
+        <link rel="stylesheet" href="./style.css" type="text/css" media="screen" />
+        <link rel="stylesheet" href="./src/containers/todoList.css" type="text/css" media="screen" />
+    </head>
+
+    <body onload="load()">
+        <h1 class="title"> Todo List </h1>
+
+        <!-- ToDo List container -->
+        <section id="todoContainer">
+            <div id="todoListTab">
+                <ul id="notDoneTodoList" class="todoList">
+
+                </ul>
+                
+                <ul id="doneTodoList" class="todoList">
+                    
+                </ul>
+            </div>
+
+            <form id="todoForm">
+                <input type="text" name="todoName">
+                <button type="submit"> Ajouter </button>
+            </form>
+        </section>
+
+
+        <!-- index -->
+        <script type="text/javascript" src="./src/index.js" ></script>
+        <script type="text/javascript" src="./src/Dispatcher.js" ></script>
+
+        <!-- actions -->
+        <script type="text/javascript" src="./src/actions/actionTypes.js" ></script>
+        <script type="text/javascript" src="./src/actions/todoActions.js" ></script>
+
+        <!-- components -->
+        <script type="text/javascript" src="./src/components/Todo.js" ></script>
+
+        <!-- containers -->
+        <script type="text/javascript" src="./src/containers/Todolist.js" ></script>
+
+        <!-- stores -->
+        <script type="text/javascript" src="./src/stores/Store.js" ></script>
+        <script type="text/javascript" src="./src/stores/TodoStore.js" ></script>
+
+        <!-- tools -->        
+        <script type="text/javascript" src="./src/tools/Counter.js" ></script>
+        <script type="text/javascript" src="./src/tools/tools.js" ></script>
+        
+        </body>
+</html>
