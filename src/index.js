@@ -40,17 +40,23 @@ function typeCheck(...args){
   let valid = true;
 
   for (const arg of args){
-    const [val, type] = arg;
+    const [val, type, nullable = false] = arg;
 
     switch(type){
       case "number":
-        valid = tools.isNumber(val);
+        if(!tools.isNumber(val)){
+          valid = false;
+        }
         break;
 
       default:
-        valid = typeof(val) === type;
+        if(typeof(val) !== type){
+          valid = false;
+        }
         break;
     }
+
+    //TODO: null case 
   }
 
   if (!valid){
