@@ -4,16 +4,24 @@ class TodoStore extends Store {
   constructor(){
     super();
 
-    this.list = [
-      new Todo(1, "Buy milk", false),
-      new Todo(2, "Finish todoList", false),
-      new Todo(3, "Visit Martinique", true),
-      new Todo(4, "Say hi to sister", false),
-    ];
+    this.list = [];
 
-    requests.getTodos();
+    requests.getTodos(todos => this.setTodos(todos));
+  }
 
-    this.counter = new Counter(5);
+  
+  /**
+   * Set all todos with passed todos
+   * @param {object} todos 
+   */
+  setTodos(todos){
+    const list = this.list;
+
+    for(const {id, name, isDone} of todos){
+      list.push(new Todo(id, name, isDone));
+    }
+
+    this.dispatch(list);
   }
 
 
