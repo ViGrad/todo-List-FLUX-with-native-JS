@@ -11,6 +11,8 @@ class TodoStore extends Store {
       new Todo(4, "Say hi to sister", false),
     ];
 
+    requests.getTodos();
+
     this.counter = new Counter(5);
   }
 
